@@ -3,7 +3,7 @@ import path_ from 'path';
 import fs_ from 'fs';
 import JSON5 from 'json5';
 import Vorpal from 'vorpal';
-import { spawn } from 'child_process';
+import { spawn, execSync } from 'child_process';
 import { LineByLineStdoutLogger } from './LineByLineStdoutLogger.js';
 import stringTemplate from 'string-template';
 import stringArgv from 'string-argv';
@@ -140,6 +140,18 @@ export const main = async () => {
         vorpal.log('exiting...');
         instancemgr.exitall();
     })
+
+    if ( inputFileData.hasOwnProperty('init') ) {
+        for ( const entry of inputFileData.init ) {
+            let command = entry.command;
+            command = stringTemplate(command, localVars);
+            execSync(command, {
+                shell: true,
+                env: process.env,
+                stdio: 'inherit'
+            });
+        }
+    }
 
     for ( const service of inputFileData.services ) {
         let command = service.command;
