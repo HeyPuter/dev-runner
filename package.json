@@ -1,0 +1,19 @@
+{
+  "name": "dev-runner",
+  "version": "0.1.0",
+  "description": "runs file watchers and local servers in an organized way",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Puter Technologies Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "@pkgjs/parseargs": "^0.11.0",
+    "json5": "^2.2.3",
+    "string-argv": "^0.3.2",
+    "string-template": "^1.0.0",
+    "vorpal": "^1.12.0"
+  }
+}
