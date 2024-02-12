@@ -1,8 +1,11 @@
 {
-  "name": "dev-runner",
+  "name": "@heyputer/dev-runner",
   "version": "0.1.0",
   "description": "runs file watchers and local servers in an organized way",
   "main": "src/main.js",
+  "bin": {
+    "dev-runner": "src/main.js"
+  },
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
