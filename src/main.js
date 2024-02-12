@@ -8,6 +8,10 @@ import { LineByLineStdoutLogger } from './LineByLineStdoutLogger.js';
 import stringTemplate from 'string-template';
 import stringArgv from 'string-argv';
 
+const USAGE = `
+Usage: dev-runner [input-file] [vars-file]
+`
+
 const vorpal = Vorpal();
 
 const argsSpec = {
@@ -109,6 +113,12 @@ export const main = async () => {
     
     if ( varsFilePathRel === undefined || varsFilePathRel.trim() === '--' ) {
         varsFilePathRel = 'local.json5';
+    }
+
+    if ( ! fs_.existsSync(inputFilePathRel) ) {
+        console.error(INIT_MARKER + `input file not found: ${inputFilePathRel}`);
+        console.error(USAGE);
+        process.exit(1);
     }
     
     const inputFilePathAbs = path_.resolve(inputFilePathRel);
