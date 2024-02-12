@@ -1,10 +1,10 @@
 {
   "name": "@heyputer/dev-runner",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "runs file watchers and local servers in an organized way",
   "main": "src/main.js",
   "bin": {
-    "dev-runner": "src/main.js"
+    "dev-runner": "bin/entry.js"
   },
   "type": "module",
   "scripts": {

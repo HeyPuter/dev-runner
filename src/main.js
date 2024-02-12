@@ -89,7 +89,7 @@ class InstanceManager {
     }
 }
 
-const main = async () => {
+export const main = async () => {
     const args = process.argv.slice(2);
 
     // prefix for log messages that occur before the advanced logging
@@ -164,5 +164,3 @@ const main = async () => {
         .delimiter('dev-runner> ')
         .show();
 };
-
-main();
